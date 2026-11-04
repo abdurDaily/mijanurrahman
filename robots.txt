@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mijan.example.com/sitemap.xml
+Sitemap: https://abdurdaily.github.io/mijanurrahman/sitemap.xml

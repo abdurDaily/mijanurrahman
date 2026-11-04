@@ -25,8 +25,9 @@ The repo is ready to serve as-is (compiled `css/style.css` is committed, all pat
    ```
 3. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main` / `(root)` → Save.**
 4. After ~1 minute the site is live at `https://<username>.github.io/mijan-portfolio/` — share that link.
-5. For a proper link-preview card (Facebook/Messenger/WhatsApp), replace `https://mijan.example.com/` in `index.html`
-   (canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD), `robots.txt` and `sitemap.xml` with that Pages URL, then commit & push.
+5. Link previews use absolute URLs to `https://abdurdaily.github.io/mijanurrahman/` (`index.html` canonical, `og:*`,
+   `twitter:image`, JSON-LD; `robots.txt`; `sitemap.xml`). If the site moves to another domain, replace that URL everywhere,
+   push, then re-scrape on https://developers.facebook.com/tools/debug/.
 
 After any content change: `npm run build:css` (only if you used new Tailwind classes), commit, push — Pages redeploys automatically.
 
@@ -51,7 +52,6 @@ Items with `sample: true` show a small dashed **Sample** tag. Remove the flag on
 
 ## Before going live
 
-- Replace `https://mijan.example.com` in `index.html`, `robots.txt`, `sitemap.xml`, `js/data.js`.
 - Confirm location label ("Based in Bangladesh") and the draft biography in the About section.
 - Fill `CONTACT` and connect a form service.
 
