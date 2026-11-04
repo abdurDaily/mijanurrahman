@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────── Base ───────────── */
+@layer base {
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+  /* Bengali needs taller line boxes; matras clip otherwise */
+  :lang(bn) { line-height: 1.75; }
+  html[lang="bn"] body { @apply font-bn; }
+  html[lang="bn"] .font-display { @apply font-bnserif; letter-spacing: 0; }
+  html[lang="bn"] .h-display { line-height: 1.3; }
+  html[lang="bn"] h1.h-display { font-size: clamp(2.4rem, min(7.5vw, 11svh), 7rem); }
+  /* Bengali has no true italics — avoid synthesized slant */
+  html[lang="bn"] .italic { font-style: normal; }
+  /* Latin wordmark keeps its typeface in both languages */
+  .wordmark, html[lang="bn"] .wordmark { font-family: "Cormorant Garamond", Georgia, serif; }
+  ::selection { background: #A47B45; color: #F5F2EB; }
+  :focus-visible { outline: 2px solid #A47B45; outline-offset: 3px; }
+  img { content-visibility: auto; }
+  body.is-locked { overflow: hidden; }
+}
+
+/* Bilingual data content: both languages are rendered, CSS shows the active one. */
+html[lang="bn"] .bi[lang="en"],
+html[lang="en"] .bi[lang="bn"] { display: none; }
+
+/* ───────────── Components ───────────── */
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-14; }
+  .label { @apply text-[11px] font-medium uppercase tracking-label; }
+  html[lang="bn"] .label { letter-spacing: 0.04em; font-size: 13px; text-transform: none; }
+
+  .h-display { @apply font-display font-light leading-[0.95] tracking-[-0.02em]; }
+  .section { @apply relative py-24 md:py-32 lg:py-40; }
+
+  .eyebrow { @apply label flex items-center gap-3 text-gold-deep; }
+  .eyebrow::before { content: ''; @apply block h-px w-10 bg-current; }
+  .on-dark .eyebrow { @apply text-gold-soft; }
+
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-3 overflow-hidden whitespace-nowrap
+      border px-6 py-3.5 text-[13px] font-medium tracking-wide transition-colors duration-500 ease-expo;
+  }
+  .btn span, .btn svg { @apply relative z-[1]; }
+  .btn::after {
+    content: ''; @apply absolute inset-0 origin-bottom scale-y-0 transition-transform duration-500 ease-expo;
+  }
+  .btn:hover::after { @apply origin-top scale-y-100; }
+  .btn-dark { @apply border-ink bg-ink text-paper; }
+  .btn-dark::after { @apply bg-gold; }
+  .btn-line { @apply border-ink/30 text-ink hover:text-paper; }
+  .btn-line::after { @apply bg-ink; }
+  .btn-light { @apply border-ivory/30 text-ivory hover:text-night; }
+  .btn-light::after { @apply bg-ivory; }
+
+  .link-u { @apply relative; }
+  .link-u::after {
+    content: ''; @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-expo;
+  }
+  .link-u:hover::after, .link-u[aria-current="true"]::after { @apply origin-left scale-x-100; }
+
+  .sample-tag {
+    @apply inline-flex items-center gap-1.5 border border-dashed border-gold/60 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-gold-deep;
+  }
+  .on-dark .sample-tag { @apply text-gold-soft; }
+
+  .chip {
+    @apply label border border-ink/15 px-4 py-2.5 text-mute transition-colors duration-300 hover:border-ink hover:text-ink;
+  }
+  .chip[aria-pressed="true"] { @apply border-ink bg-ink text-paper; }
+
+  .field {
+    @apply w-full border-0 border-b border-ink/20 bg-transparent px-0 py-3 text-base text-ink placeholder:text-mute/70
+      transition-colors focus:border-gold focus:outline-none focus:ring-0;
+  }
+  .field[aria-invalid="true"] { @apply border-red-700; }
+
+  .img-zoom img { @apply transition-transform duration-[1.2s] ease-expo will-change-transform; }
+  .img-zoom:hover img, .img-zoom:focus-visible img { transform: scale(1.06); }
+
+  .grain::before {
+    content: ''; @apply pointer-events-none absolute inset-0 z-0 opacity-[0.06];
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Range input used by the audio player */
+  .range { @apply h-1 w-full cursor-pointer appearance-none bg-transparent; }
+  .range::-webkit-slider-runnable-track { @apply h-px bg-ivory/25; }
+  .range::-moz-range-track { @apply h-px bg-ivory/25; }
+  .range::-webkit-slider-thumb { @apply -mt-[5px] h-[11px] w-[11px] appearance-none rounded-full bg-gold-soft; }
+  .range::-moz-range-thumb { @apply h-[11px] w-[11px] rounded-full border-0 bg-gold-soft; }
+}
+
+/* ───────────── Header states ───────────── */
+#site-header.is-menu-open { color: #F5F2EB; background: transparent !important; box-shadow: none !important; backdrop-filter: none !important; }
+#site-header .nav-cta { border-color: currentColor; }
+#site-header .nav-cta::after { background: #A47B45; }
+#site-header .nav-cta:hover { border-color: #A47B45; color: #F5F2EB; }
+
+/* ───────────── Gallery grid ───────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 96px;
+  grid-auto-flow: dense;
+  gap: 10px;
+}
+/* Rows come in 2/4 modules so tall = 2 × std and the grid tiles without holes. */
+.gallery-grid .g-std { grid-row: span 2; }
+.gallery-grid .g-tall { grid-row: span 4; }
+.gallery-grid .g-wide { grid-column: span 2; grid-row: span 2; }
+@media (min-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 110px; gap: 14px; }
+  .gallery-grid .g-std { grid-column: span 2; grid-row: span 2; }
+  .gallery-grid .g-tall { grid-column: span 2; grid-row: span 4; }
+  .gallery-grid .g-wide { grid-column: span 4; grid-row: span 4; }
+}
+@media (min-width: 1280px) {
+  .gallery-grid { grid-auto-rows: 140px; gap: 18px; }
+}
+
+/* ───────────── Motion ───────────── */
+/* Elements revealed by IntersectionObserver */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* Hide hero text before GSAP takes over to prevent a flash */
+.js .hero-line > span { display: inline-block; }
+
+@keyframes scroll-cue { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
+.scroll-cue::after {
+  content: ''; position: absolute; inset: 0; background: #A47B45; animation: scroll-cue 2.2s cubic-bezier(.65,0,.35,1) infinite;
+}
+
+@keyframes eq { 0%,100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+.eq span { display: block; width: 2px; background: currentColor; transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
+.eq span:nth-child(2) { animation-delay: .2s; } .eq span:nth-child(3) { animation-delay: .4s; } .eq span:nth-child(4) { animation-delay: .1s; }
+.eq.paused span { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mijan.example.com/sitemap.xml

@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mijan — Photographer &amp; Bangla Reciter | মিজান — আলোকচিত্রী ও আবৃত্তিশিল্পী</title>
+  <meta name="description" content="Mijan is a photographer and Bangla reciter (আবৃত্তিশিল্পী). Portraits, landscapes, documentary and travel photography, and Bangla poetry recitation by Rabindranath, Nazrul, Jibanananda and more." />
+  <meta name="theme-color" content="#151515" />
+  <link rel="canonical" href="https://mijan.example.com/" />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Mijan — Capturing Moments. Expressing Emotions." />
+  <meta property="og:description" content="Photographer and Bangla reciter. ক্যামেরার লেন্সে মুহূর্ত, কণ্ঠে কবিতার আবেগ।" />
+  <meta property="og:image" content="https://mijan.example.com/assets/images/og-image.jpg" />
+  <meta property="og:url" content="https://mijan.example.com/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="bn_BD" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mijan — Photographer &amp; Bangla Reciter" />
+  <meta name="twitter:description" content="Capturing Moments. Expressing Emotions." />
+  <meta name="twitter:image" content="https://mijan.example.com/assets/images/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mijan",
+    "alternateName": "মিজান",
+    "jobTitle": ["Photographer", "Bangla Reciter"],
+    "url": "https://mijan.example.com/",
+    "image": "https://mijan.example.com/assets/images/og-image.jpg",
+    "sameAs": ["https://www.facebook.com/Mijan09"],
+    "knowsLanguage": ["bn", "en"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hind+Siliguri:wght@400;500&family=Inter:wght@400;500&family=Noto+Serif+Bengali:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/images/hero/mijan-portrait-800.webp" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>document.documentElement.classList.add('js');try{var l=localStorage.getItem('mijan-lang');if(l==='bn')document.documentElement.lang='bn'}catch(e){}setTimeout(function(){var p=document.getElementById('preloader');if(p)p.remove()},7000)</script>
+  <noscript><style>#preloader{display:none}</style></noscript>
+</head>
+
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper" data-i18n="a11y.skip">Skip to content</a>
+
+  <!-- ═════════════ PRELOADER ═════════════ -->
+  <div id="preloader" class="fixed inset-0 z-[150] flex flex-col justify-between bg-night p-6 text-ivory md:p-10" aria-hidden="true">
+    <div class="label flex justify-between text-ivory/50">
+      <span>Photography</span><span class="font-bn normal-case tracking-normal">আবৃত্তি</span>
+    </div>
+    <div class="overflow-hidden text-center">
+      <div class="pl-word wordmark h-display text-[22vw] font-light tracking-[0.04em] md:text-[15vw]" aria-label="MIJAN">
+        <span class="inline-block">M</span><span class="inline-block">I</span><span class="inline-block">J</span><span class="inline-block">A</span><span class="inline-block">N</span>
+      </div>
+    </div>
+    <div>
+      <div class="mb-4 flex items-end justify-between">
+        <span class="label text-ivory/50">Capturing moments</span>
+        <span class="font-display text-5xl font-light tabular-nums md:text-7xl"><span id="pl-count">0</span><span class="text-gold-soft">%</span></span>
+      </div>
+      <div class="h-px w-full bg-ivory/15"><div id="pl-bar" class="h-px w-full origin-left scale-x-0 bg-gold-soft"></div></div>
+    </div>
+  </div>
+
+  <!-- ═════════════ NAVIGATION ═════════════ -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-[background-color,color,box-shadow,padding] duration-500 ease-expo">
+    <nav class="container-site flex items-center justify-between py-5" aria-label="Primary">
+      <a href="#home" class="wordmark font-display text-2xl font-medium tracking-[0.18em]" aria-label="Mijan — home">MIJAN</a>
+
+      <ul class="hidden items-center gap-8 text-[13px] lg:flex">
+        <li><a href="#home" class="nav-link link-u" data-i18n="nav.home">Home</a></li>
+        <li><a href="#about" class="nav-link link-u" data-i18n="nav.about">About</a></li>
+        <li><a href="#photography" class="nav-link link-u" data-i18n="nav.photography">Photography</a></li>
+        <li><a href="#recitation" class="nav-link link-u" data-i18n="nav.recitation">Recitation</a></li>
+        <li><a href="#journey" class="nav-link link-u" data-i18n="nav.achievements">Achievements</a></li>
+        <li><a href="#journal" class="nav-link link-u" data-i18n="nav.journal">Journal</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3 sm:gap-5">
+        <button type="button" class="lang-toggle label flex items-center gap-1.5 py-2" data-i18n-attr="aria-label:a11y.lang">
+          <span data-lang-opt="en">EN</span><span class="opacity-40">/</span><span data-lang-opt="bn" class="font-bn normal-case tracking-normal">বাংলা</span>
+        </button>
+        <a href="#contact" class="nav-cta btn hidden border-current py-2.5 sm:inline-flex"><span data-i18n="nav.contact">Contact</span></a>
+        <button type="button" id="menu-btn" class="relative -mr-2 flex h-11 w-11 items-center justify-center lg:hidden" aria-expanded="false" aria-controls="mobile-menu" data-i18n-attr="aria-label:a11y.menu">
+          <span class="menu-line absolute h-px w-6 -translate-y-1 bg-current"></span>
+          <span class="menu-line absolute h-px w-6 translate-y-1 bg-current"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu" class="invisible fixed inset-0 z-40 flex flex-col bg-night text-ivory lg:hidden" aria-hidden="true">
+    <div class="container-site flex flex-1 flex-col justify-center pt-20">
+      <ul class="space-y-2">
+        <li class="overflow-hidden"><a href="#home" class="mm-link block font-display text-5xl font-light" data-i18n="nav.home">Home</a></li>
+        <li class="overflow-hidden"><a href="#about" class="mm-link block font-display text-5xl font-light" data-i18n="nav.about">About</a></li>
+        <li class="overflow-hidden"><a href="#photography" class="mm-link block font-display text-5xl font-light" data-i18n="nav.photography">Photography</a></li>
+        <li class="overflow-hidden"><a href="#recitation" class="mm-link block font-display text-5xl font-light" data-i18n="nav.recitation">Recitation</a></li>
+        <li class="overflow-hidden"><a href="#journey" class="mm-link block font-display text-5xl font-light" data-i18n="nav.achievements">Achievements</a></li>
+        <li class="overflow-hidden"><a href="#journal" class="mm-link block font-display text-5xl font-light" data-i18n="nav.journal">Journal</a></li>
+        <li class="overflow-hidden"><a href="#contact" class="mm-link block font-display text-5xl font-light italic text-gold-soft" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="mm-foot container-site flex items-center justify-between border-t border-ivory/10 py-6">
+      <div class="social-links flex gap-5 text-ivory/70"></div>
+      <span class="label text-ivory/40" data-i18n="hero.location">Based in Bangladesh</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ═════════════ HERO ═════════════ -->
+    <section id="home" class="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-28 lg:pt-24">
+      <canvas id="hero-canvas" class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+      <div class="pointer-events-none absolute right-0 top-0 hidden h-full w-[38%] bg-sand lg:block" aria-hidden="true"></div>
+
+      <!-- Vertical socials -->
+      <div class="absolute bottom-10 left-5 z-10 hidden flex-col items-center gap-5 xl:flex">
+        <div class="social-links flex flex-col gap-5 text-mute"></div>
+        <span class="h-16 w-px bg-ink/20"></span>
+      </div>
+
+      <div class="container-site relative z-10 grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-7 xl:pl-10">
+          <p class="hero-fade eyebrow mb-8"><span data-i18n="hero.location">Based in Bangladesh</span></p>
+          <h1 class="h-display text-[clamp(3.1rem,min(10vw,15svh),9.5rem)]" aria-label="Capturing Moments. Expressing Emotions." data-i18n-attr="aria-label:hero.title">
+            <span class="hero-line block overflow-hidden pb-[0.06em]"><span data-i18n="hero.l1">Capturing</span></span>
+            <span class="hero-line block overflow-hidden pb-[0.06em] lg:pl-[12%]"><span data-i18n="hero.l2">Moments.</span></span>
+            <span class="hero-line block overflow-hidden pb-[0.06em]"><span class="italic text-gold" data-i18n="hero.l3">Expressing</span></span>
+            <span class="hero-line block overflow-hidden pb-[0.06em] lg:pl-[24%]"><span data-i18n="hero.l4">Emotions.</span></span>
+          </h1>
+          <div class="mt-10 grid gap-8 md:grid-cols-2 md:items-end">
+            <div class="hero-fade">
+              <p class="label mb-3 text-ink" data-i18n="hero.roles">Photographer | Bangla Reciter | Creative Artist</p>
+              <p class="font-bnserif text-lg leading-relaxed text-mute" lang="bn">আলো, মুহূর্ত আর শব্দের মাঝে নিজের গল্প খুঁজে ফিরি।</p>
+            </div>
+            <div class="hero-fade flex flex-wrap gap-3">
+              <a href="#photography" class="btn btn-dark"><span data-i18n="hero.cta1">Explore My Photography</span><i data-lucide="arrow-down-right" class="h-4 w-4"></i></a>
+              <a href="#recitation" class="btn btn-line"><span data-i18n="hero.cta2">Discover My Recitation</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative lg:col-span-5">
+          <div class="hero-media relative ml-auto aspect-[4/5] w-[86%] overflow-hidden bg-sand sm:w-[70%] lg:w-full">
+            <img class="hero-img absolute inset-0 h-[115%] w-full object-cover object-[60%_30%]" src="assets/images/hero/mijan-portrait-800.webp"
+                 srcset="assets/images/hero/mijan-portrait-800.webp 800w, assets/images/hero/mijan-portrait-1600.webp 1600w" sizes="(min-width:1024px) 40vw, 80vw"
+                 width="864" height="1184" alt="Portrait of Mijan in an ivory shawl beside a painting of a sailing boat" data-alt-en="Portrait of Mijan in an ivory shawl beside a painting of a sailing boat" data-alt-bn="পালতোলা নৌকার ছবির পাশে মিজানের প্রতিকৃতি" fetchpriority="high" />
+          </div>
+          <figure class="hero-layer absolute -bottom-10 left-0 w-[46%] border-[6px] border-paper shadow-[0_30px_60px_-30px_rgba(0,0,0,.45)] sm:w-[38%] lg:-left-16 lg:w-[48%]">
+            <img class="aspect-[4/3] w-full object-cover" src="assets/images/hero/sea-voyage-800.webp" width="800" height="600" loading="lazy"
+                 alt="Mijan at the bow of a ship looking out over the sea" data-alt-en="Mijan at the bow of a ship looking out over the sea" data-alt-bn="জাহাজের সামনে দাঁড়িয়ে সমুদ্রের দিকে তাকিয়ে মিজান" />
+          </figure>
+          <p class="hero-float label absolute -right-1 top-6 hidden origin-top-right translate-x-full rotate-90 text-mute lg:block">Lens &amp; Voice — <span class="font-bn normal-case tracking-normal">আলো ও কণ্ঠ</span></p>
+          <span class="hero-float absolute -top-6 left-[10%] font-display text-7xl italic text-gold/30 lg:left-[-6%]" aria-hidden="true">“</span>
+        </div>
+      </div>
+
+      <a href="#about" class="absolute bottom-8 right-5 z-10 flex flex-col items-center gap-3 text-mute md:right-10" aria-label="Scroll to About" data-i18n-attr="aria-label:a11y.scroll">
+        <span class="label [writing-mode:vertical-rl]" data-i18n="hero.scroll">Scroll</span>
+        <span class="scroll-cue relative block h-14 w-px overflow-hidden bg-ink/15"></span>
+      </a>
+    </section>
+
+    <!-- ═════════════ ABOUT ═════════════ -->
+    <section id="about" class="section bg-paper">
+      <div class="container-site grid gap-16 lg:grid-cols-12 lg:gap-10">
+        <figure class="relative lg:col-span-5">
+          <div class="absolute -left-3 -top-3 h-full w-full border border-gold/50 md:-left-5 md:-top-5" aria-hidden="true"></div>
+          <div class="parallax-wrap relative aspect-[4/5] overflow-hidden bg-sand">
+            <img class="parallax-img absolute inset-0 h-[118%] w-full object-cover" src="assets/images/profile/studio-portrait-800.webp"
+                 srcset="assets/images/profile/studio-portrait-800.webp 800w, assets/images/profile/studio-portrait-1600.webp 1600w" sizes="(min-width:1024px) 38vw, 92vw"
+                 width="800" height="800" loading="lazy" alt="Mijan seated in a dark blazer against teal curtains" data-alt-en="Mijan seated in a dark blazer against teal curtains" data-alt-bn="নীল পর্দার সামনে কালো ব্লেজারে বসে আছেন মিজান" />
+          </div>
+          <figcaption class="mt-5 flex items-center justify-between text-sm text-mute">
+            <span class="font-display text-lg italic text-ink" data-i18n="about.caption">Mijan, between frames.</span>
+            <span class="label">№ 01</span>
+          </figcaption>
+        </figure>
+
+        <div class="lg:col-span-6 lg:col-start-7 lg:pt-10">
+          <p class="eyebrow reveal mb-6"><span data-i18n="about.eyebrow">About</span></p>
+          <h2 class="split-heading h-display mb-10 text-[clamp(2.6rem,6vw,5.5rem)]" data-i18n="about.title">Beyond the Lens &amp; Beyond Words.</h2>
+          <blockquote class="reveal mb-10 border-l border-gold pl-6 font-display text-2xl italic leading-snug text-ink md:text-3xl" data-i18n="about.intro">
+            “I believe every photograph carries a story, and every poem holds an emotion. Through photography and Bangla recitation, I explore the beauty of human experiences, nature, culture, and expression.”
+          </blockquote>
+          <p class="reveal mb-10 font-bnserif text-lg leading-[1.9] text-ink/80" lang="bn">
+            প্রতিটি ছবির ভেতরে লুকিয়ে থাকে একটি গল্প, আর প্রতিটি কবিতায় থাকে একটি অনুভূতি। আলোকচিত্র আর বাংলা আবৃত্তির মধ্য দিয়ে আমি খুঁজে ফিরি মানুষের অভিজ্ঞতা, প্রকৃতি, সংস্কৃতি আর প্রকাশের সৌন্দর্য।
+          </p>
+
+          <div class="reveal grid gap-8 border-t border-ink/10 pt-10 sm:grid-cols-3">
+            <div>
+              <i data-lucide="aperture" class="mb-4 h-5 w-5 text-gold"></i>
+              <h3 class="mb-2 font-display text-xl" data-i18n="about.p1t">Through the Lens</h3>
+              <p class="text-sm leading-relaxed text-mute" data-i18n="about.p1">Portraits, landscapes and everyday life — photographs that hold on to a feeling as much as a scene.</p>
+            </div>
+            <div>
+              <i data-lucide="mic" class="mb-4 h-5 w-5 text-gold"></i>
+              <h3 class="mb-2 font-display text-xl" data-i18n="about.p2t">Through the Voice</h3>
+              <p class="text-sm leading-relaxed text-mute" data-i18n="about.p2">Bangla recitation that gives breath to the poetry of Rabindranath, Nazrul, Jibanananda and more.</p>
+            </div>
+            <div>
+              <i data-lucide="feather" class="mb-4 h-5 w-5 text-gold"></i>
+              <h3 class="mb-2 font-display text-xl" data-i18n="about.p3t">Philosophy</h3>
+              <p class="text-sm leading-relaxed text-mute" data-i18n="about.p3">Look slowly, listen closely, and let the moment speak before the artist does.</p>
+            </div>
+          </div>
+
+          <div id="about-more" class="hidden overflow-hidden" aria-hidden="true">
+            <div class="space-y-5 pt-10 leading-relaxed text-ink/80">
+              <p class="sample-tag" data-i18n="about.draft">Draft biography — to be reviewed by Mijan</p>
+              <p data-i18n="about.more1">Mijan’s work moves between two languages of art: the silent language of the photograph and the spoken language of poetry. Both begin with attention — to light, to rhythm, to the small details that carry meaning.</p>
+              <p data-i18n="about.more2">Whether framing a portrait or reciting a poem on stage, the aim is the same: to stay honest to the moment and let it reach someone else intact.</p>
+            </div>
+          </div>
+
+          <div class="reveal mt-12 flex flex-wrap gap-3">
+            <button type="button" id="about-toggle" class="btn btn-dark" aria-expanded="false" aria-controls="about-more"><span data-i18n="about.more">Read More</span><i data-lucide="plus" class="h-4 w-4"></i></button>
+            <a id="bio-download" href="#" class="btn btn-line hidden" download><span data-i18n="about.bio">Download Biography</span><i data-lucide="download" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ PHOTOGRAPHY ═════════════ -->
+    <section id="photography" class="section bg-sand">
+      <div class="container-site">
+        <div class="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow reveal mb-6"><span data-i18n="photo.eyebrow">Portfolio</span></p>
+            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="photo.title">Through My Lens</h2>
+          </div>
+          <div class="reveal lg:col-span-4 lg:col-start-9">
+            <p class="mb-4 font-display text-2xl italic text-ink/80" data-i18n="photo.sub">Every frame captures a moment. Every moment tells a story.</p>
+            <p class="sample-tag" data-i18n="photo.sample">Sample frames — Mijan’s photographs to be added</p>
+          </div>
+        </div>
+
+        <div id="gallery-filters" class="reveal mb-10 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]" role="group" aria-label="Filter photographs by category" data-i18n-attr="aria-label:a11y.filter"></div>
+        <div id="gallery" class="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ SELECTED STORIES ═════════════ -->
+    <section id="projects" class="section bg-paper">
+      <div class="container-site">
+        <div class="mb-20 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="eyebrow reveal mb-6"><span data-i18n="proj.eyebrow">Featured Projects</span></p>
+            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="proj.title">Selected Stories</h2>
+          </div>
+          <p class="reveal max-w-sm text-mute" data-i18n="proj.sub">Longer photographic series — each one a place, a people, a season.</p>
+        </div>
+        <div id="projects-list" class="space-y-28 md:space-y-40"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ FILMS & REELS ═════════════ -->
+    <section id="films" class="on-dark section grain relative overflow-hidden border-b border-night-line bg-night-2 text-ivory" data-nav-theme="dark" data-video-block>
+      <div class="container-site relative z-[1]">
+        <div class="mb-16 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-8">
+            <p class="eyebrow reveal mb-6"><span data-i18n="film.eyebrow">Moving Pictures</span></p>
+            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="film.title">Films &amp; Reels</h2>
+          </div>
+          <p class="reveal text-ivory/60 lg:col-span-4" data-i18n="film.sub">Short documentaries, videos and photo animations — stories told in motion.</p>
+        </div>
+        <div id="film-grid" class="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 xl:grid-cols-6"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ RECITATION ═════════════ -->
+    <section id="recitation" class="on-dark section grain relative overflow-hidden bg-night text-ivory" data-nav-theme="dark">
+      <div class="container-site relative z-[1]">
+        <div class="mb-20 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-8">
+            <p class="eyebrow reveal mb-6"><span data-i18n="rec.eyebrow">Bangla Recitation</span></p>
+            <h2 class="split-heading font-bnserif text-[clamp(2.4rem,6.5vw,6rem)] font-light leading-[1.25]" lang="bn">কবিতার আবেগ, <span class="text-gold-soft">কণ্ঠের প্রকাশ</span></h2>
+          </div>
+          <p class="reveal font-display text-2xl italic text-ivory/70 lg:col-span-4" data-i18n="rec.sub">Words become emotions. Poetry becomes an experience.</p>
+        </div>
+
+        <!-- Featured player -->
+        <div id="player" class="reveal mb-28 grid overflow-hidden border border-night-line bg-night-2 md:grid-cols-12">
+          <div class="relative aspect-square md:col-span-5 md:aspect-auto">
+            <img id="player-cover" class="absolute inset-0 h-full w-full object-cover opacity-90" src="assets/images/profile/recording-studio-800.webp" width="800" height="1000" loading="lazy" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-night-2/80 to-transparent md:bg-gradient-to-r md:from-transparent md:to-night-2/60"></div>
+            <div class="eq paused absolute bottom-5 left-5 flex h-6 items-end gap-1 text-gold-soft" aria-hidden="true"><span class="h-full"></span><span class="h-full"></span><span class="h-full"></span><span class="h-full"></span></div>
+          </div>
+          <div class="flex flex-col justify-between gap-10 p-6 sm:p-10 md:col-span-7 lg:p-14">
+            <div>
+              <p class="label mb-6 flex items-center gap-3 text-gold-soft"><span data-i18n="rec.featured">Featured Recitation</span><span id="player-sample"></span></p>
+              <h3 id="player-title" class="mb-3 font-bnserif text-4xl font-light leading-tight sm:text-5xl"></h3>
+              <p id="player-poet" class="text-ivory/60"></p>
+            </div>
+            <div>
+              <div class="mb-6 flex items-center gap-5">
+                <button type="button" id="player-prev" class="flex h-11 w-11 items-center justify-center text-ivory/60 transition hover:text-ivory" data-i18n-attr="aria-label:a11y.prev"><i data-lucide="skip-back" class="h-5 w-5"></i></button>
+                <button type="button" id="player-play" class="flex h-16 w-16 items-center justify-center rounded-full bg-ivory text-night transition hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-40" aria-label="Play"><i data-lucide="play" class="ml-0.5 h-6 w-6"></i></button>
+                <button type="button" id="player-next" class="flex h-11 w-11 items-center justify-center text-ivory/60 transition hover:text-ivory" data-i18n-attr="aria-label:a11y.next"><i data-lucide="skip-forward" class="h-5 w-5"></i></button>
+                <p id="player-status" class="ml-auto text-right text-sm text-ivory/50" aria-live="polite"></p>
+              </div>
+              <input id="player-seek" type="range" class="range mb-3" min="0" max="100" step="0.1" value="0" aria-label="Seek" data-i18n-attr="aria-label:a11y.seek" disabled />
+              <div class="flex items-center justify-between gap-6 text-xs tabular-nums text-ivory/50">
+                <span><span id="player-current">0:00</span> / <span id="player-duration">0:00</span></span>
+                <label class="flex w-36 items-center gap-3">
+                  <button type="button" id="player-mute" class="text-ivory/60 hover:text-ivory" data-i18n-attr="aria-label:a11y.mute"><i data-lucide="volume-2" class="h-4 w-4"></i></button>
+                  <input id="player-volume" type="range" class="range" min="0" max="1" step="0.01" value="0.9" aria-label="Volume" data-i18n-attr="aria-label:a11y.volume" />
+                </label>
+              </div>
+              <audio id="player-audio" preload="none"></audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- Library -->
+        <div class="mb-28 grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <h3 class="reveal mb-4 font-display text-4xl font-light" data-i18n="rec.library">Recitation Library</h3>
+            <p class="reveal mb-8 text-ivory/60" data-i18n="rec.libsub">Browse by poet. Select any recitation to play it in the player above.</p>
+            <div id="poet-tabs" class="reveal flex flex-wrap gap-2" role="tablist" aria-label="Poets"></div>
+          </div>
+          <ol id="track-list" class="divide-y divide-night-line border-y border-night-line lg:col-span-7 lg:col-start-6"></ol>
+        </div>
+
+        <!-- Videos -->
+        <div class="mb-28" data-video-block>
+          <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+            <h3 class="reveal font-display text-4xl font-light" data-i18n="rec.videos">Video Recitations</h3>
+            <p class="reveal max-w-sm text-ivory/60" data-i18n="rec.videosub">Recitations performed on camera. Tap any reel to watch.</p>
+          </div>
+          <div id="video-grid" class="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 md:gap-x-6"></div>
+        </div>
+
+        <!-- Performance gallery -->
+        <div class="mb-28">
+          <h3 class="reveal mb-10 font-display text-4xl font-light" data-i18n="rec.performance">On Stage &amp; In Studio</h3>
+          <div id="performance-grid" class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5"></div>
+        </div>
+
+        <!-- Featured poetry -->
+        <div>
+          <p class="eyebrow reveal mb-8"><span data-i18n="rec.poems">Featured Poetry</span></p>
+          <ul id="poem-list" class="border-t border-night-line"></ul>
+          <p class="mt-6 text-xs text-ivory/40" data-i18n="rec.poemsnote">Poem titles only — full texts belong to their poets and publishers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ JOURNEY / ACHIEVEMENTS ═════════════ -->
+    <section id="journey" class="section bg-paper">
+      <div class="container-site">
+        <div class="mb-20 text-center">
+          <p class="eyebrow reveal mb-6 justify-center"><span data-i18n="ach.eyebrow">Achievements &amp; Experiences</span></p>
+          <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="ach.title">Recognition &amp; Journey</h2>
+        </div>
+        <div class="relative mx-auto max-w-5xl">
+          <div class="absolute bottom-0 left-4 top-0 w-px bg-ink/10 md:left-1/2" aria-hidden="true">
+            <div id="timeline-progress" class="h-full w-full origin-top bg-gold"></div>
+          </div>
+          <ol id="timeline" class="space-y-16 md:space-y-24"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ SERVICES ═════════════ -->
+    <section id="services" class="section bg-sand">
+      <div class="container-site">
+        <div class="mb-20 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-8">
+            <p class="eyebrow reveal mb-6"><span data-i18n="svc.eyebrow">Services &amp; Collaboration</span></p>
+            <h2 class="split-heading h-display text-[clamp(2.8rem,7vw,6.5rem)]" data-i18n="svc.title">Let’s Create Something Meaningful</h2>
+          </div>
+          <p class="reveal text-mute lg:col-span-4" data-i18n="svc.sub">Available for commissions, programmes and collaborations. Tell me about your idea — I’ll reply with availability.</p>
+        </div>
+        <div id="services-list" class="grid gap-16 lg:grid-cols-2 lg:gap-20"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ JOURNAL ═════════════ -->
+    <section id="journal" class="section bg-paper">
+      <div class="container-site">
+        <div class="mb-16 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="eyebrow reveal mb-6"><span data-i18n="blog.eyebrow">Journal</span></p>
+            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="blog.title">Stories &amp; Thoughts</h2>
+          </div>
+          <p class="reveal max-w-sm text-mute" data-i18n="blog.sub">Photography stories, creative thoughts, Bangla literature, recitation experiences and travel notes.</p>
+        </div>
+        <div id="post-list" class="grid gap-12 md:grid-cols-12 md:gap-8"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ TESTIMONIALS ═════════════ -->
+    <section id="testimonials" class="section border-t border-ink/10 bg-paper" aria-roledescription="carousel" aria-label="Kind Words">
+      <div class="container-site grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <p class="eyebrow reveal mb-6"><span data-i18n="test.eyebrow">Testimonials</span></p>
+          <h2 class="split-heading h-display mb-8 text-[clamp(2.8rem,6vw,5.5rem)]" data-i18n="test.title">Kind Words</h2>
+          <div class="reveal flex items-center gap-3">
+            <button type="button" id="test-prev" class="flex h-12 w-12 items-center justify-center border border-ink/20 transition hover:border-ink hover:bg-ink hover:text-paper" data-i18n-attr="aria-label:a11y.prev"><i data-lucide="arrow-left" class="h-4 w-4"></i></button>
+            <button type="button" id="test-next" class="flex h-12 w-12 items-center justify-center border border-ink/20 transition hover:border-ink hover:bg-ink hover:text-paper" data-i18n-attr="aria-label:a11y.next"><i data-lucide="arrow-right" class="h-4 w-4"></i></button>
+            <span id="test-count" class="label ml-3 text-mute tabular-nums" aria-live="polite"></span>
+          </div>
+        </div>
+        <div id="test-track" class="relative min-h-[260px] lg:col-span-7 lg:col-start-6"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ CONTACT ═════════════ -->
+    <section id="contact" class="section bg-sand">
+      <div class="container-site grid gap-16 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <p class="eyebrow reveal mb-6"><span data-i18n="contact.eyebrow">Contact</span></p>
+          <h2 class="split-heading h-display mb-8 text-[clamp(2.8rem,6.5vw,6rem)]" data-i18n="contact.title">Have a Story to Share?</h2>
+          <p class="reveal mb-10 max-w-md text-mute" data-i18n="contact.sub">For photography projects, recitation invitations, cultural collaborations, or simply a conversation, feel free to reach out.</p>
+          <div class="parallax-wrap reveal relative mb-10 hidden aspect-[16/10] overflow-hidden lg:block">
+            <img class="parallax-img absolute inset-0 h-[118%] w-full object-cover" src="assets/images/profile/beach-sunset-800.webp" width="800" height="430" loading="lazy" alt="Mijan smiling on a beach at sunset" data-alt-en="Mijan smiling on a beach at sunset" data-alt-bn="সূর্যাস্তে সমুদ্রসৈকতে হাসিমুখে মিজান" />
+          </div>
+          <ul id="contact-links" class="reveal space-y-3"></ul>
+        </div>
+
+        <form id="contact-form" class="reveal lg:col-span-6 lg:col-start-7" novalidate>
+          <div class="grid gap-x-8 gap-y-8 sm:grid-cols-2">
+            <div>
+              <label for="cf-name" class="label text-mute" data-i18n="form.name">Name</label>
+              <input id="cf-name" name="name" class="field" autocomplete="name" required maxlength="100" aria-describedby="cf-name-err" />
+              <p id="cf-name-err" class="field-err mt-2 text-xs text-red-700"></p>
+            </div>
+            <div>
+              <label for="cf-email" class="label text-mute" data-i18n="form.email">Email</label>
+              <input id="cf-email" name="email" type="email" class="field" autocomplete="email" required maxlength="160" aria-describedby="cf-email-err" />
+              <p id="cf-email-err" class="field-err mt-2 text-xs text-red-700"></p>
+            </div>
+            <div>
+              <label for="cf-subject" class="label text-mute" data-i18n="form.subject">Subject</label>
+              <input id="cf-subject" name="subject" class="field" required maxlength="150" aria-describedby="cf-subject-err" />
+              <p id="cf-subject-err" class="field-err mt-2 text-xs text-red-700"></p>
+            </div>
+            <div>
+              <label for="cf-type" class="label text-mute" data-i18n="form.type">Inquiry Type</label>
+              <select id="cf-type" name="type" class="field cursor-pointer" required aria-describedby="cf-type-err">
+                <option value="" data-i18n="form.choose">Choose one…</option>
+                <option value="photography" data-i18n="form.t1">Photography Booking</option>
+                <option value="recitation" data-i18n="form.t2">Recitation Invitation</option>
+                <option value="collaboration" data-i18n="form.t3">Collaboration</option>
+                <option value="general" data-i18n="form.t4">General Inquiry</option>
+              </select>
+              <p id="cf-type-err" class="field-err mt-2 text-xs text-red-700"></p>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="cf-message" class="label text-mute" data-i18n="form.message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" class="field resize-y" required minlength="10" maxlength="3000" aria-describedby="cf-message-err"></textarea>
+              <p id="cf-message-err" class="field-err mt-2 text-xs text-red-700"></p>
+            </div>
+            <!-- Honeypot -->
+            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          </div>
+          <div class="mt-10 flex flex-wrap items-center gap-6">
+            <button type="submit" class="btn btn-dark"><span data-i18n="form.send">Send Message</span><i data-lucide="send" class="h-4 w-4"></i></button>
+            <p id="form-status" class="max-w-sm text-sm" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═════════════ FOOTER ═════════════ -->
+  <footer id="footer" class="on-dark relative overflow-hidden bg-night pt-24 text-ivory" data-nav-theme="dark">
+    <div class="container-site">
+      <blockquote class="footer-reveal mb-20 max-w-4xl font-display text-3xl font-light italic leading-snug text-ivory/90 md:text-5xl" data-i18n="footer.quote">
+        “Some moments are captured through a lens; others are preserved through words.”
+      </blockquote>
+      <div class="footer-reveal grid gap-12 border-t border-night-line py-14 sm:grid-cols-2 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <p class="wordmark mb-4 font-display text-3xl tracking-[0.18em]">MIJAN</p>
+          <p class="max-w-xs text-sm leading-relaxed text-ivory/60" data-i18n="footer.statement">Photographer and Bangla reciter — telling stories with light and with the spoken word.</p>
+        </div>
+        <nav class="lg:col-span-3" aria-label="Footer">
+          <p class="label mb-5 text-ivory/40" data-i18n="footer.nav">Explore</p>
+          <ul class="grid grid-cols-2 gap-3 text-sm text-ivory/80">
+            <li><a class="link-u" href="#about" data-i18n="nav.about">About</a></li>
+            <li><a class="link-u" href="#photography" data-i18n="nav.photography">Photography</a></li>
+            <li><a class="link-u" href="#recitation" data-i18n="nav.recitation">Recitation</a></li>
+            <li><a class="link-u" href="#journey" data-i18n="nav.achievements">Achievements</a></li>
+            <li><a class="link-u" href="#journal" data-i18n="nav.journal">Journal</a></li>
+            <li><a class="link-u" href="#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lg:col-span-4">
+          <p class="label mb-5 text-ivory/40" data-i18n="footer.connect">Connect</p>
+          <div class="social-links mb-5 flex gap-5 text-ivory/70"></div>
+          <ul id="footer-contact" class="space-y-2 text-sm text-ivory/70"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="wordmark footer-mark pointer-events-none select-none text-center font-display text-[24vw] font-light leading-[0.75] tracking-[0.04em] text-ivory/[0.04]" aria-hidden="true">MIJAN</div>
+    <div class="container-site flex flex-wrap items-center justify-between gap-4 border-t border-night-line py-6 text-xs text-ivory/50">
+      <p>© <span id="year"></span> Mijan. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <button type="button" id="to-top" class="label flex items-center gap-2 text-ivory/70 hover:text-ivory"><span data-i18n="footer.top">Back to top</span><i data-lucide="arrow-up" class="h-4 w-4"></i></button>
+    </div>
+  </footer>
+
+  <!-- ═════════════ MODALS ═════════════ -->
+  <div id="lightbox" class="modal fixed inset-0 z-[120] hidden bg-night/[0.97] text-ivory" role="dialog" aria-modal="true" aria-label="Image viewer" data-i18n-attr="aria-label:a11y.viewer">
+    <div class="flex h-full flex-col">
+      <div class="flex items-center justify-between p-4 md:p-6">
+        <span id="lb-count" class="label tabular-nums text-ivory/60"></span>
+        <button type="button" class="modal-close flex h-11 w-11 items-center justify-center hover:text-gold-soft" data-i18n-attr="aria-label:a11y.close"><i data-lucide="x" class="h-6 w-6"></i></button>
+      </div>
+      <div class="relative flex flex-1 items-center justify-center overflow-hidden px-4 md:px-20">
+        <img id="lb-img" class="max-h-full max-w-full select-none object-contain" alt="" />
+        <button type="button" id="lb-prev" class="absolute left-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center hover:text-gold-soft md:left-6" data-i18n-attr="aria-label:a11y.prev"><i data-lucide="chevron-left" class="h-7 w-7"></i></button>
+        <button type="button" id="lb-next" class="absolute right-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center hover:text-gold-soft md:right-6" data-i18n-attr="aria-label:a11y.next"><i data-lucide="chevron-right" class="h-7 w-7"></i></button>
+      </div>
+      <div id="lb-caption" class="min-h-[88px] p-4 text-center md:p-6"></div>
+    </div>
+  </div>
+
+  <div id="video-modal" class="modal fixed inset-0 z-[120] hidden flex-col items-center justify-center gap-5 bg-night/95 p-4" role="dialog" aria-modal="true" aria-label="Video player" data-i18n-attr="aria-label:a11y.video">
+    <button type="button" class="modal-close absolute right-4 top-4 flex h-11 w-11 items-center justify-center text-ivory hover:text-gold-soft" data-i18n-attr="aria-label:a11y.close"><i data-lucide="x" class="h-6 w-6"></i></button>
+    <div class="aspect-video w-full max-w-5xl bg-black" id="video-frame"></div>
+    <a id="video-source" href="#" target="_blank" rel="noopener noreferrer" class="link-u label text-ivory/70 hover:text-ivory"></a>
+  </div>
+
+  <div id="article-modal" class="modal fixed inset-0 z-[120] hidden overflow-y-auto bg-paper" role="dialog" aria-modal="true" aria-labelledby="article-title">
+    <button type="button" class="modal-close fixed right-4 top-4 z-10 flex h-11 w-11 items-center justify-center bg-paper/80 backdrop-blur hover:text-gold" data-i18n-attr="aria-label:a11y.close"><i data-lucide="x" class="h-6 w-6"></i></button>
+    <article id="article-body" class="mx-auto max-w-3xl px-5 py-20 md:py-28"></article>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
