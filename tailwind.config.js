@@ -15,9 +15,10 @@ module.exports = {
       fontFamily: {
         // Bengali fallbacks are listed so mixed-script text renders correctly per glyph.
         display: ['"Cormorant Garamond"', '"Noto Serif Bengali"', 'Georgia', 'serif'],
-        sans: ['Inter', '"Hind Siliguri"', 'system-ui', 'sans-serif'],
+        // All Bengali text uses Noto Serif Bengali (the literary serif of the About intro).
+        sans: ['Inter', '"Noto Serif Bengali"', 'system-ui', 'sans-serif'],
         bnserif: ['"Noto Serif Bengali"', 'serif'],
-        bn: ['"Hind Siliguri"', 'sans-serif'],
+        bn: ['"Noto Serif Bengali"', 'serif'],
       },
       letterSpacing: { label: '0.22em' },
       maxWidth: { site: '1440px' },

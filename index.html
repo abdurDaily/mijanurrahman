@@ -38,7 +38,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hind+Siliguri:wght@400;500&family=Inter:wght@400;500&family=Noto+Serif+Bengali:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&family=Noto+Serif+Bengali:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/images/hero/mijan-portrait-800.webp" />
   <link rel="stylesheet" href="css/style.css" />
   <script>document.documentElement.classList.add('js');try{var l=localStorage.getItem('mijan-lang');if(l==='bn')document.documentElement.lang='bn'}catch(e){}setTimeout(function(){var p=document.getElementById('preloader');if(p)p.remove()},7000)</script>
@@ -75,8 +75,8 @@
       <ul class="hidden items-center gap-8 text-[13px] lg:flex">
         <li><a href="#home" class="nav-link link-u" data-i18n="nav.home">Home</a></li>
         <li><a href="#about" class="nav-link link-u" data-i18n="nav.about">About</a></li>
-        <li><a href="#photography" class="nav-link link-u" data-i18n="nav.photography">Photography</a></li>
         <li><a href="#recitation" class="nav-link link-u" data-i18n="nav.recitation">Recitation</a></li>
+        <li><a href="#photography" class="nav-link link-u" data-i18n="nav.photography">Photography</a></li>
         <li><a href="#journey" class="nav-link link-u" data-i18n="nav.achievements">Achievements</a></li>
         <li><a href="#journal" class="nav-link link-u" data-i18n="nav.journal">Journal</a></li>
       </ul>
@@ -99,8 +99,8 @@
       <ul class="space-y-2">
         <li class="overflow-hidden"><a href="#home" class="mm-link block font-display text-5xl font-light" data-i18n="nav.home">Home</a></li>
         <li class="overflow-hidden"><a href="#about" class="mm-link block font-display text-5xl font-light" data-i18n="nav.about">About</a></li>
-        <li class="overflow-hidden"><a href="#photography" class="mm-link block font-display text-5xl font-light" data-i18n="nav.photography">Photography</a></li>
         <li class="overflow-hidden"><a href="#recitation" class="mm-link block font-display text-5xl font-light" data-i18n="nav.recitation">Recitation</a></li>
+        <li class="overflow-hidden"><a href="#photography" class="mm-link block font-display text-5xl font-light" data-i18n="nav.photography">Photography</a></li>
         <li class="overflow-hidden"><a href="#journey" class="mm-link block font-display text-5xl font-light" data-i18n="nav.achievements">Achievements</a></li>
         <li class="overflow-hidden"><a href="#journal" class="mm-link block font-display text-5xl font-light" data-i18n="nav.journal">Journal</a></li>
         <li class="overflow-hidden"><a href="#contact" class="mm-link block font-display text-5xl font-light italic text-gold-soft" data-i18n="nav.contact">Contact</a></li>
@@ -226,53 +226,6 @@
       </div>
     </section>
 
-    <!-- ═════════════ PHOTOGRAPHY ═════════════ -->
-    <section id="photography" class="section bg-sand">
-      <div class="container-site">
-        <div class="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div class="lg:col-span-7">
-            <p class="eyebrow reveal mb-6"><span data-i18n="photo.eyebrow">Portfolio</span></p>
-            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="photo.title">Through My Lens</h2>
-          </div>
-          <div class="reveal lg:col-span-4 lg:col-start-9">
-            <p class="mb-4 font-display text-2xl italic text-ink/80" data-i18n="photo.sub">Every frame captures a moment. Every moment tells a story.</p>
-            <p class="sample-tag" data-i18n="photo.sample">Sample frames — Mijan’s photographs to be added</p>
-          </div>
-        </div>
-
-        <div id="gallery-filters" class="reveal mb-10 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]" role="group" aria-label="Filter photographs by category" data-i18n-attr="aria-label:a11y.filter"></div>
-        <div id="gallery" class="gallery-grid"></div>
-      </div>
-    </section>
-
-    <!-- ═════════════ SELECTED STORIES ═════════════ -->
-    <section id="projects" class="section bg-paper">
-      <div class="container-site">
-        <div class="mb-20 flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p class="eyebrow reveal mb-6"><span data-i18n="proj.eyebrow">Featured Projects</span></p>
-            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="proj.title">Selected Stories</h2>
-          </div>
-          <p class="reveal max-w-sm text-mute" data-i18n="proj.sub">Longer photographic series — each one a place, a people, a season.</p>
-        </div>
-        <div id="projects-list" class="space-y-28 md:space-y-40"></div>
-      </div>
-    </section>
-
-    <!-- ═════════════ FILMS & REELS ═════════════ -->
-    <section id="films" class="on-dark section grain relative overflow-hidden border-b border-night-line bg-night-2 text-ivory" data-nav-theme="dark" data-video-block>
-      <div class="container-site relative z-[1]">
-        <div class="mb-16 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div class="lg:col-span-8">
-            <p class="eyebrow reveal mb-6"><span data-i18n="film.eyebrow">Moving Pictures</span></p>
-            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="film.title">Films &amp; Reels</h2>
-          </div>
-          <p class="reveal text-ivory/60 lg:col-span-4" data-i18n="film.sub">Short documentaries, videos and photo animations — stories told in motion.</p>
-        </div>
-        <div id="film-grid" class="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 xl:grid-cols-6"></div>
-      </div>
-    </section>
-
     <!-- ═════════════ RECITATION ═════════════ -->
     <section id="recitation" class="on-dark section grain relative overflow-hidden bg-night text-ivory" data-nav-theme="dark">
       <div class="container-site relative z-[1]">
@@ -333,7 +286,7 @@
             <h3 class="reveal font-display text-4xl font-light" data-i18n="rec.videos">Video Recitations</h3>
             <p class="reveal max-w-sm text-ivory/60" data-i18n="rec.videosub">Recitations performed on camera. Tap any reel to watch.</p>
           </div>
-          <div id="video-grid" class="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 md:gap-x-6"></div>
+          <div id="video-grid" class="-mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:thin] sm:-mx-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0"></div>
         </div>
 
         <!-- Performance gallery -->
@@ -348,6 +301,77 @@
           <ul id="poem-list" class="border-t border-night-line"></ul>
           <p class="mt-6 text-xs text-ivory/40" data-i18n="rec.poemsnote">Poem titles only — full texts belong to their poets and publishers.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ FILMS & REELS ═════════════ -->
+    <section id="films" class="section relative overflow-hidden bg-paper">
+      <div class="container-site">
+        <div class="mb-16 grid gap-8 lg:mb-20 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-8">
+            <p class="eyebrow reveal mb-6"><span data-i18n="film.eyebrow">Moving Pictures</span></p>
+            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="film.title">Films &amp; Reels</h2>
+          </div>
+          <p class="reveal text-mute lg:col-span-4" data-i18n="film.sub">Short documentaries, videos and photo animations — stories told in motion.</p>
+        </div>
+
+        <!-- Screening room: stage + playlist -->
+        <div class="grid gap-14 lg:grid-cols-12 lg:items-start lg:gap-10">
+          <div class="reveal lg:col-span-5 xl:col-span-4">
+            <div class="relative mx-auto w-full max-w-[340px]">
+              <div class="absolute -right-3 -top-3 h-full w-full border border-gold/50 md:-right-5 md:-top-5" aria-hidden="true"></div>
+              <div id="film-stage" class="relative aspect-[9/16] overflow-hidden bg-night text-ivory shadow-[0_40px_80px_-40px_rgba(0,0,0,0.6)]"></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 lg:col-start-6 xl:col-start-6">
+            <p class="label reveal mb-5 flex items-center gap-3 text-mute">
+              <span class="relative flex h-2 w-2" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-60 motion-reduce:hidden"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-gold"></span></span>
+              <span data-i18n="film.now">Now Showing</span>
+            </p>
+            <div id="film-now" class="mb-8 min-h-[96px]" aria-live="polite"></div>
+            <div class="reveal mb-12 flex flex-wrap items-center gap-3">
+              <button type="button" id="film-prev" class="flex h-12 w-12 items-center justify-center border border-ink/20 transition hover:border-ink hover:bg-ink hover:text-paper" data-i18n-attr="aria-label:a11y.prev"><i data-lucide="arrow-left" class="h-4 w-4"></i></button>
+              <button type="button" id="film-next" class="flex h-12 w-12 items-center justify-center border border-ink/20 transition hover:border-ink hover:bg-ink hover:text-paper" data-i18n-attr="aria-label:a11y.next"><i data-lucide="arrow-right" class="h-4 w-4"></i></button>
+              <button type="button" id="film-enlarge" class="btn btn-dark"><span data-i18n="video.enlarge">Watch larger</span><i data-lucide="maximize-2" class="h-4 w-4"></i></button>
+              <a id="film-source" href="#" target="_blank" rel="noopener noreferrer" class="link-u label ml-2 text-ink"></a>
+            </div>
+            <ol id="film-playlist" class="reveal border-t border-ink/10"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════ PHOTOGRAPHY ═════════════ -->
+    <section id="photography" class="section bg-sand">
+      <div class="container-site">
+        <div class="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow reveal mb-6"><span data-i18n="photo.eyebrow">Portfolio</span></p>
+            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="photo.title">Through My Lens</h2>
+          </div>
+          <div class="reveal lg:col-span-4 lg:col-start-9">
+            <p class="mb-4 font-display text-2xl italic text-ink/80" data-i18n="photo.sub">Every frame captures a moment. Every moment tells a story.</p>
+            <p class="sample-tag" data-i18n="photo.sample">Sample frames — Mijan’s photographs to be added</p>
+          </div>
+        </div>
+
+        <div id="gallery-filters" class="reveal mb-10 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]" role="group" aria-label="Filter photographs by category" data-i18n-attr="aria-label:a11y.filter"></div>
+        <div id="gallery" class="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- ═════════════ SELECTED STORIES ═════════════ -->
+    <section id="projects" class="section bg-paper">
+      <div class="container-site">
+        <div class="mb-20 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="eyebrow reveal mb-6"><span data-i18n="proj.eyebrow">Featured Projects</span></p>
+            <h2 class="split-heading h-display text-[clamp(3rem,8vw,7.5rem)]" data-i18n="proj.title">Selected Stories</h2>
+          </div>
+          <p class="reveal max-w-sm text-mute" data-i18n="proj.sub">Longer photographic series — each one a place, a people, a season.</p>
+        </div>
+        <div id="projects-list" class="space-y-28 md:space-y-40"></div>
       </div>
     </section>
 
@@ -484,8 +508,8 @@
           <p class="label mb-5 text-ivory/40" data-i18n="footer.nav">Explore</p>
           <ul class="grid grid-cols-2 gap-3 text-sm text-ivory/80">
             <li><a class="link-u" href="#about" data-i18n="nav.about">About</a></li>
-            <li><a class="link-u" href="#photography" data-i18n="nav.photography">Photography</a></li>
             <li><a class="link-u" href="#recitation" data-i18n="nav.recitation">Recitation</a></li>
+            <li><a class="link-u" href="#photography" data-i18n="nav.photography">Photography</a></li>
             <li><a class="link-u" href="#journey" data-i18n="nav.achievements">Achievements</a></li>
             <li><a class="link-u" href="#journal" data-i18n="nav.journal">Journal</a></li>
             <li><a class="link-u" href="#contact" data-i18n="nav.contact">Contact</a></li>
