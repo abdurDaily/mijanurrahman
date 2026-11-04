@@ -15,19 +15,30 @@ const sourceUrl = (v) => (v.platform === 'facebook' ? `https://www.facebook.com/
 const platformName = (v) => (v.platform === 'facebook' ? 'Facebook' : 'YouTube');
 const playIcon = (cls = 'h-4 w-4') => `<svg class="${cls}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>`;
 
-/** Official embed URL sized to the frame it will live in. */
-function embedUrl(v, width, { autoplay = false } = {}) {
-  const w = Math.max(220, Math.round(width));
-  if (v.platform === 'facebook') {
+/*
+ * Branded preview skin.
+ * Facebook's embed draws a header bar (page name + Share) and a large play button.
+ * The iframe is extended CROP px above the frame so the header is clipped away, and
+ * the skin's play button sits exactly over Facebook's (whose centre moves up by
+ * CROP/2). The skin ignores pointer events, so the click lands on Facebook's real
+ * button; once the iframe takes focus (= playback started) the skin fades out.
+ */
+const CROP = 64;
+const isFb = (v) => v.platform === 'facebook';
+
+/** Official embed URL sized to the iframe it will live in. */
+function embedUrl(v, w, h) {
+  if (isFb(v)) {
     const href = encodeURIComponent(sourceUrl(v));
-    const h = Math.round(w * (v.vertical ? 16 / 9 : 9 / 16));
-    return `https://www.facebook.com/plugins/video.php?href=${href}&show_text=false&width=${w}&height=${h}&autoplay=${autoplay}`;
+    return `https://www.facebook.com/plugins/video.php?href=${href}&show_text=false&width=${Math.max(220, Math.round(w))}&height=${Math.round(h)}`;
   }
-  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?rel=0${autoplay ? '&autoplay=1' : ''}`;
+  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?rel=0`;
 }
 
-const iframeHTML = (title) =>
-  `<iframe class="absolute inset-0 h-full w-full bg-night opacity-0 transition-opacity duration-700" title="${esc(title.en)}" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen scrolling="no"></iframe>`;
+const iframeHTML = (v) => {
+  const pos = isFb(v) ? `style="top:-${CROP}px;height:calc(100% + ${CROP}px)" class="absolute inset-x-0 w-full` : 'class="absolute inset-0 h-full w-full';
+  return `<iframe ${pos} bg-night opacity-0 transition-opacity duration-700" title="${esc(titleOf(v).en)}" allow="clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen scrolling="no"></iframe>`;
+};
 
 /** Placeholder shown while the embed loads (and if it never does). */
 const posterHTML = (n, kind) => `
@@ -35,6 +46,25 @@ const posterHTML = (n, kind) => `
     <span class="font-display text-7xl font-light leading-none text-ivory/15">${pad(n)}</span>
     <span class="flex items-center gap-3 text-ivory/60"><span class="h-px w-8 bg-gold-soft/60"></span><span class="label">${bi(kind)}</span></span>
   </span>`;
+
+const skinHTML = (v, size = 'md') => {
+  if (!isFb(v)) return '';
+  const btn = size === 'lg' ? 'h-24 w-24' : 'h-[84px] w-[84px]';
+  return `
+  <span class="vid-skin pointer-events-none absolute inset-0 transition-opacity duration-500" aria-hidden="true">
+    <span class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/55 to-transparent"></span>
+    <span class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent"></span>
+    <span class="absolute left-1/2 flex ${btn} -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-ivory text-night shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition duration-500 group-hover/frame:scale-105 group-hover/frame:bg-gold-soft" style="top:calc(50% - ${CROP / 2}px)">
+      <span class="absolute -inset-2.5 rounded-full border border-ivory/40 transition-all duration-700 group-hover/frame:-inset-4 group-hover/frame:border-gold-soft/70"></span>
+      ${playIcon('ml-1 h-7 w-7')}
+    </span>
+    <span class="absolute bottom-4 left-4 flex items-center gap-2 text-ivory/85">
+      <span class="h-px w-6 bg-gold-soft"></span><span class="label">${v.vertical ? 'Reel' : 'Video'}</span>
+    </span>
+  </span>`;
+};
+
+const frameInner = (v, n, size) => posterHTML(n, VIDEO_KINDS[v.kind]) + iframeHTML(v) + skinHTML(v, size);
 
 /** Load an iframe's embed once its frame is near the viewport (and sized). */
 const lazyFrames = new IntersectionObserver((entries) => {
@@ -45,22 +75,36 @@ const lazyFrames = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '300px 0px' });
 
-function loadFrame(frame, v, opts) {
+function loadFrame(frame, v) {
   const iframe = frame.querySelector('iframe');
+  frame.classList.remove('is-playing');
   iframe.onload = () => iframe.classList.remove('opacity-0');
-  iframe.src = embedUrl(v, frame.clientWidth, opts);
+  iframe.src = embedUrl(v, frame.clientWidth, frame.clientHeight + (isFb(v) ? CROP : 0));
 }
+
+/* A click inside a cross-origin player moves focus into its iframe: hide that skin. */
+let focusWatch = 0;
+const markPlaying = () => {
+  const el = document.activeElement;
+  if (el?.tagName === 'IFRAME') el.closest('.vid-frame')?.classList.add('is-playing');
+};
+window.addEventListener('blur', () => {
+  setTimeout(markPlaying, 0);
+  clearInterval(focusWatch);
+  focusWatch = setInterval(markPlaying, 400); // focus can hop between iframes without a new blur
+});
+window.addEventListener('focus', () => clearInterval(focusWatch));
 
 /* ───────────── Modal (enlarge) ───────────── */
 function openVideo(v) {
   const frame = document.getElementById('video-frame');
-  frame.className = v.vertical ? 'relative aspect-[9/16] h-[min(80vh,760px)] max-w-full bg-black' : 'relative aspect-video w-full max-w-5xl bg-black';
-  frame.innerHTML = iframeHTML(titleOf(v));
+  frame.className = `vid-frame group/frame relative overflow-hidden bg-night ${v.vertical ? 'aspect-[9/16] h-[min(80vh,760px)] max-w-full' : 'aspect-video w-full max-w-5xl'}`;
+  frame.innerHTML = frameInner(v, 1, 'lg');
   const link = document.getElementById('video-source');
   link.href = sourceUrl(v);
-  link.innerHTML = `${biKey(v.platform === 'facebook' ? 'video.onFacebook' : 'video.onYoutube')} <span aria-hidden="true">↗</span>`;
+  link.innerHTML = `${biKey(isFb(v) ? 'video.onFacebook' : 'video.onYoutube')} <span aria-hidden="true">↗</span>`;
   openModal(document.getElementById('video-modal'), { onClose: () => { frame.innerHTML = ''; } });
-  requestAnimationFrame(() => loadFrame(frame, v, { autoplay: true }));
+  requestAnimationFrame(() => loadFrame(frame, v));
 }
 
 /* ───────────── Recitation rail ───────────── */
@@ -69,9 +113,8 @@ function renderRail(container, list) {
     const poet = poetOf(v);
     return `
     <article class="vid-card reveal group w-[72vw] max-w-[300px] shrink-0 snap-start sm:w-[260px] lg:w-auto lg:max-w-none">
-      <div class="vid-frame relative aspect-[9/16] overflow-hidden border border-night-line bg-night-2" data-vid="${i}">
-        ${posterHTML(k + 1, VIDEO_KINDS[v.kind])}
-        ${iframeHTML(titleOf(v))}
+      <div class="vid-frame group/frame relative aspect-[9/16] overflow-hidden border border-night-line bg-night-2" data-vid="${i}">
+        ${frameInner(v, k + 1)}
       </div>
       <div class="flex items-start justify-between gap-3 pt-4">
         <div>
@@ -112,7 +155,7 @@ function renderScreeningRoom(root, list) {
       </button>
     </li>`).join('');
 
-  const show = (k, { autoplay = false } = {}) => {
+  const show = (k) => {
     current = (k + list.length) % list.length;
     const { v } = list[current];
     playlist.querySelectorAll('[data-film]').forEach((b) => b.setAttribute('aria-current', String(Number(b.dataset.film) === current)));
@@ -122,8 +165,8 @@ function renderScreeningRoom(root, list) {
     source.href = sourceUrl(v);
     source.innerHTML = `${biKey(v.platform === 'facebook' ? 'video.onFacebook' : 'video.onYoutube')} <span aria-hidden="true">↗</span>`;
     stage.dataset.vid = String(list[current].i);
-    stage.innerHTML = posterHTML(current + 1, VIDEO_KINDS[v.kind]) + iframeHTML(titleOf(v));
-    if (autoplay || stage.dataset.ready) loadFrame(stage, v, { autoplay });
+    stage.innerHTML = frameInner(v, current + 1, 'lg');
+    if (stage.dataset.ready) loadFrame(stage, v);
     else lazyFrames.observe(stage);
     stage.dataset.ready = '1';
     if (window.gsap && !reduced()) gsap.fromTo(now, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'expo.out' });
@@ -131,10 +174,10 @@ function renderScreeningRoom(root, list) {
 
   playlist.addEventListener('click', (e) => {
     const b = e.target.closest('[data-film]');
-    if (b) show(Number(b.dataset.film), { autoplay: true });
+    if (b) show(Number(b.dataset.film));
   });
-  root.querySelector('#film-prev').addEventListener('click', () => show(current - 1, { autoplay: true }));
-  root.querySelector('#film-next').addEventListener('click', () => show(current + 1, { autoplay: true }));
+  root.querySelector('#film-prev').addEventListener('click', () => show(current - 1));
+  root.querySelector('#film-next').addEventListener('click', () => show(current + 1));
   root.querySelector('#film-enlarge').addEventListener('click', () => openVideo(list[current].v));
   delete stage.dataset.ready;
   show(0);
