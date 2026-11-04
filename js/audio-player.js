@@ -44,7 +44,7 @@ function loadTrack(i, { autoplay = false } = {}) {
   el.poet.innerHTML = bi(poetOf(track));
   el.sample.innerHTML = track.sample ? sampleTag() : '';
   const cover = track.cover ?? TRACKS.find((x) => x.cover)?.cover;
-  if (cover) el.cover.src = cover.src;
+  if (cover) el.cover.src = el.coverBg.src = cover.src;
   el.seek.value = 0;
   el.current.textContent = '0:00';
   el.duration.textContent = '0:00';
@@ -74,7 +74,7 @@ function play() {
 function initPlayer() {
   el = {
     audio: $('player-audio'), play: $('player-play'), prev: $('player-prev'), next: $('player-next'),
-    seek: $('player-seek'), volume: $('player-volume'), mute: $('player-mute'), cover: $('player-cover'),
+    seek: $('player-seek'), volume: $('player-volume'), mute: $('player-mute'), cover: $('player-cover'), coverBg: $('player-cover-bg'),
     title: $('player-title'), poet: $('player-poet'), sample: $('player-sample'), status: $('player-status'),
     current: $('player-current'), duration: $('player-duration'), eq: document.querySelector('#player .eq'),
   };
@@ -120,6 +120,7 @@ function renderPoetTabs() {
   const all = { id: 'all', en: 'All Poets', bn: 'সকল কবি' };
   box.innerHTML = [all, ...POETS].map((p) => {
     const n = p.id === 'all' ? TRACKS.length : TRACKS.filter((x) => x.poet === p.id).length;
+    if (!n) return ''; // only poets with recordings
     return `<button type="button" class="chip border-ivory/15 text-ivory/60 hover:border-ivory hover:text-ivory aria-pressed:border-gold-soft aria-pressed:bg-gold-soft aria-pressed:text-night" data-poet="${p.id}" aria-pressed="${p.id === state.poet}">${bi(p)} <span class="opacity-60">· ${n}</span></button>`;
   }).join('');
   box.addEventListener('click', (e) => {

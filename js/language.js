@@ -49,7 +49,7 @@ export const TRANSLATIONS = {
     'film.eyebrow': 'Moving Pictures', 'film.title': 'Films & Reels',
     'film.sub': 'Short documentaries, videos and photo animations — stories told in motion.',
     'video.onFacebook': 'Watch on Facebook', 'video.onYoutube': 'Watch on YouTube',
-    'video.enlarge': 'Watch larger', 'film.now': 'Now Showing',
+    'video.enlarge': 'Watch larger', 'film.now': 'On Screen',
 
     'ach.eyebrow': 'Achievements & Experiences', 'ach.title': 'Recognition & Journey', 'ach.confirm': 'Details to be confirmed',
 
@@ -118,7 +118,7 @@ export const TRANSLATIONS = {
     'film.eyebrow': 'চলমান ছবি', 'film.title': 'চলচ্চিত্র ও রিল',
     'film.sub': 'স্বল্পদৈর্ঘ্য ডকুমেন্টারি, ভিডিও আর ছবির অ্যানিমেশন — গতিতে বলা গল্প।',
     'video.onFacebook': 'ফেসবুকে দেখুন', 'video.onYoutube': 'ইউটিউবে দেখুন',
-    'video.enlarge': 'বড় করে দেখুন', 'film.now': 'এখন দেখানো হচ্ছে',
+    'video.enlarge': 'বড় করে দেখুন', 'film.now': 'পর্দায় এখন',
 
     'ach.eyebrow': 'অর্জন ও অভিজ্ঞতা', 'ach.title': 'স্বীকৃতি ও পথচলা', 'ach.confirm': 'বিস্তারিত নিশ্চিত করা হবে',
 

@@ -17,16 +17,6 @@ export function runPreloader() {
   if (!pre) return Promise.resolve();
   if (!window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return Promise.resolve(); }
 
-  const count = document.getElementById('pl-count');
-  const bar = document.getElementById('pl-bar');
-  const letters = pre.querySelectorAll('.pl-word span');
-  const progress = { v: 0 };
-  const render = () => { count.textContent = Math.round(progress.v); bar.style.transform = `scaleX(${progress.v / 100})`; };
-
-  gsap.fromTo(letters, { yPercent: 110 }, { yPercent: 0, duration: 1, stagger: 0.06, ease: 'expo.out' });
-  // Progress eases toward 90% while real assets load, then completes.
-  const crawl = gsap.to(progress, { v: 90, duration: 1.6, ease: 'power2.out', onUpdate: render });
-
   const heroImg = document.querySelector('.hero-img');
   const imgReady = heroImg?.complete ? Promise.resolve() : new Promise((r) => { heroImg?.addEventListener('load', r, { once: true }); heroImg?.addEventListener('error', r, { once: true }); });
   const ready = Promise.race([
@@ -35,11 +25,9 @@ export function runPreloader() {
   ]);
 
   return ready.then(() => new Promise((resolve) => {
-    crawl.kill();
     gsap.timeline({ onComplete: finish })
-      .to(progress, { v: 100, duration: 0.45, ease: 'power2.inOut', onUpdate: render })
-      .to(letters, { yPercent: -110, duration: 0.7, stagger: 0.04, ease: 'expo.in' }, '+=0.1')
-      .to(pre, { clipPath: 'inset(0 0 100% 0)', duration: 1, ease: 'expo.inOut' }, '-=0.25')
+      .to('.pl-spinner', { scale: 0.6, autoAlpha: 0, duration: 0.5, ease: 'power2.in' })
+      .to(pre, { clipPath: 'inset(0 0 100% 0)', duration: 1, ease: 'expo.inOut' }, '-=0.15')
       .add(resolve, '-=0.7'); // start the hero intro while the curtain lifts
   }));
 }

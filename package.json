@@ -7,10 +7,12 @@
     "build:css": "tailwindcss -i ./css/input.css -o ./css/style.css --minify",
     "watch:css": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
     "images": "node scripts/optimize-images.mjs",
+    "recitations": "node scripts/extract-recitations.mjs",
     "build": "npm run images && npm run build:css",
     "serve": "npx --yes serve -l 5173 ."
   },
   "devDependencies": {
+    "ffmpeg-static": "^5.3.0",
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17"
   }

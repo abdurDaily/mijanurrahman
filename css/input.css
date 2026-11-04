@@ -26,7 +26,10 @@ html[lang="en"] .bi[lang="bn"] { display: none; }
 
 /*
  * One Bengali voice everywhere — the navigation's: Noto Serif Bengali, regular
- * weight, no tracking, no uppercase, no synthesized italics. Unlayered so it
+ * weight, no tracking, no uppercase, no synthesized italics. Only the 400 weight
+ * is loaded (index.html), so Bengali glyphs look identical inside font-medium
+ * labels/buttons and font-light headings alike, while Latin keeps its weights.
+ * The rules below handle spacing/case/italics. Unlayered so it
  * overrides utility classes (font-light, tracking-*, italic) in both the বাংলা
  * version and Bengali phrases inside the English version.
  */
@@ -37,9 +40,6 @@ html[lang="en"] .bi[lang="bn"] { display: none; }
 .label:lang(bn), .label :lang(bn) { font-size: 13px; letter-spacing: 0.02em; text-transform: none; }
 /* Latin wordmark keeps its typeface in both languages */
 .wordmark, .wordmark:lang(bn) { font-family: "Cormorant Garamond", Georgia, serif; }
-
-/* Video preview skin hides once the visitor starts the embedded player */
-.vid-frame.is-playing .vid-skin { opacity: 0; }
 
 /* ───────────── Components ───────────── */
 @layer components {

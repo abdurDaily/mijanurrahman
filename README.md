@@ -41,8 +41,8 @@ After any content change: `npm run build:css` (only if you used new Tailwind cla
 | Social links | `SOCIAL` | Facebook is set; add Instagram/YouTube URLs to show them. |
 | Photography gallery | `PHOTOS` | Currently **stock placeholders** (picsum.photos). Put Mijan's photos in `assets/images/photography/` and use `local('photography/name')` after adding them to `scripts/optimize-images.mjs`, or set `img: { src, srcset, full }` directly. `size`: `std` / `tall` / `wide`. |
 | Featured projects | `PROJECTS` | Sample. |
-| Audio recitations | `TRACKS` | Drop MP3s at the listed `src` paths in `assets/audio/recitations/`. Missing files show "Recording coming soon" instead of a broken player. |
-| Videos & reels | `VIDEOS` | Facebook reels play through Facebook's official embed when clicked. `kind: 'recitation'` → Recitation section; other kinds → "Films & Reels". Add `title`, `poet` or `cover` per item. YouTube is supported too. |
+| Audio recitations | `TRACKS` | Built automatically from every `kind: 'recitation'` video: run `npm run recitations` to extract their sound to `assets/audio/recitations/<id>.m4a` (new videos only; pass ids to redo specific ones). Audio-only MP3s can be added to `TRACKS` by hand. Missing files show "Recording coming soon". |
+| Videos & reels | `VIDEOS` | Facebook reels play through Facebook's official embed when clicked. `kind: 'recitation'` → Recitation section; other kinds → "Films & Reels". Add `title`, `poet` per item. Cover image: save the poster as `images/reels/<video id>.jpg` and run `npm run images` (no cover → designed poster). YouTube is supported too. |
 | Achievements | `ACHIEVEMENTS` | Two entries use real photos (Cplus TV award moment, book presentation) — **year/role need confirming**. The rest are samples. |
 | Journal, testimonials | `POSTS`, `TESTIMONIALS` | All sample — never publish invented testimonials. |
 | Biography PDF | `PERSON.biographyPdf` | Download button appears when set. |

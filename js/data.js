@@ -105,18 +105,6 @@ export const POETS = [
   { id: 'others', en: 'Other Poets', bn: 'অন্যান্য কবি' },
 ];
 
-// `src` paths are where recordings should be placed. Until the file exists the
-// player shows "Recording coming soon" instead of a broken control.
-export const TRACKS = [
-  { sample: true, poet: 'jibanananda', title: { en: 'Banalata Sen', bn: 'বনলতা সেন' }, src: 'assets/audio/recitations/banalata-sen.mp3', cover: local('profile/recording-studio') },
-  { sample: true, poet: 'nazrul', title: { en: 'Bidrohi', bn: 'বিদ্রোহী' }, src: 'assets/audio/recitations/bidrohi.mp3' },
-  { sample: true, poet: 'tagore', title: { en: 'Dui Bigha Jomi', bn: 'দুই বিঘা জমি' }, src: 'assets/audio/recitations/dui-bigha-jomi.mp3' },
-  { sample: true, poet: 'sukanta', title: { en: 'Chharpatra', bn: 'ছাড়পত্র' }, src: 'assets/audio/recitations/chharpatra.mp3' },
-  { sample: true, poet: 'tagore', title: { en: 'Sonar Tori', bn: 'সোনার তরী' }, src: 'assets/audio/recitations/sonar-tori.mp3' },
-  { sample: true, poet: 'jibanananda', title: { en: 'Abar Ashibo Phire', bn: 'আবার আসিব ফিরে' }, src: 'assets/audio/recitations/abar-ashibo-phire.mp3' },
-  { sample: true, poet: 'others', poetName: { en: 'Shamsur Rahman', bn: 'শামসুর রাহমান' }, title: { en: 'Swadhinota Tumi', bn: 'স্বাধীনতা তুমি' }, src: 'assets/audio/recitations/swadhinota-tumi.mp3' },
-];
-
 /* ── Videos ──────────────────────────────────────────────── */
 
 export const VIDEO_KINDS = {
@@ -131,20 +119,32 @@ export const VIDEO_KINDS = {
 // section); every other kind → "Films & Reels". Optional per item:
 //   title: { en, bn }  — otherwise shown as "<Kind> 01"
 //   poet: 'tagore' | 'nazrul' | 'jibanananda' | 'sukanta' | 'others'
-//   cover: 'assets/images/reels/<file>.webp' — a screenshot/thumbnail you export
-// YouTube works too: { platform: 'youtube', id: '<video id>', vertical: false, kind: … }
-const reel = (id, kind) => ({ platform: 'facebook', id, kind, vertical: true });
+//   cover — defaults to assets/images/reels/<id>.webp: put the poster frame at
+//           images/reels/<id>.jpg and run `npm run images`. Missing → designed poster.
+//   vertical: true — only for genuinely 9:16 videos (these are all 16:9)
+// YouTube works too: { platform: 'youtube', id: '<video id>', kind: … }
+const reel = (id, kind, extra = {}) => ({ platform: 'facebook', id, kind, vertical: false, cover: `assets/images/reels/${id}.webp`, ...extra });
 export const VIDEOS = [
-  reel('1033076182723101', 'recitation'),
-  reel('793200420524801', 'recitation'),
-  reel('2915450601986638', 'recitation'),
-  reel('329347249624583', 'recitation'),
+  reel('1033076182723101', 'recitation', { poet: 'jibanananda', title: { en: 'Adbhut Andhar Ek', bn: 'অদ্ভুত আঁধার এক' } }),
+  reel('793200420524801', 'recitation', { title: { en: 'Ekta Kichhu Maratmok', bn: 'একটা কিছু মারাত্মক' } }),
+  reel('2915450601986638', 'recitation', { title: { en: 'Recitation on BTV Chattogram', bn: 'বিটিভি চট্টগ্রামে আবৃত্তি' } }),
+  reel('329347249624583', 'recitation', { title: { en: 'Tokhon Sotti Manush Chhilam', bn: 'তখন সত্যি মানুষ ছিলাম' } }),
   reel('1005792838706566', 'documentary'),
   reel('475708602046091', 'film'),
   reel('1251626265788494', 'film'),
   reel('480721980431884', 'animation'),
   reel('1810408296505420', 'reel'),
   reel('3140460346197577', 'reel'),
+];
+
+// "Featured Recitation" player. Every recitation video above is also a track: its
+// soundtrack is extracted to assets/audio/recitations/<id>.m4a by `npm run recitations`.
+// Add audio-only recordings with { poet, title, src: 'assets/audio/recitations/<file>.mp3' }.
+// A missing file shows "Recording coming soon" instead of a broken control.
+export const TRACKS = [
+  ...VIDEOS.filter((v) => v.kind === 'recitation').map((v) => ({
+    poet: v.poet, title: v.title ?? VIDEO_KINDS.recitation, src: `assets/audio/recitations/${v.id}.m4a`, cover: { src: v.cover },
+  })),
 ];
 
 export const PERFORMANCE_PHOTOS = [
